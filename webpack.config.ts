@@ -23,7 +23,7 @@ const config: Configuration = {
   module: {
     rules: [{
       test: /\.tsx?/,
-      exclude: /node_modules/,
+      exclude: /node_modules\/(?!observables\/).*/,
       loader: 'babel-loader',
       options: {
         presets: ['@babel/preset-react', '@babel/preset-typescript'],
