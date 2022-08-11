@@ -9,6 +9,8 @@
 		"check-types": "tsc"
 	},
 	"dependencies": {
+		"@rjsf/core": "^4.2.3",
+		"observables": "github:ChocolateLoverRaj/observables#v4.2.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},

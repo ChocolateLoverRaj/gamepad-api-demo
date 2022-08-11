@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import Gamepads from './gamepads/Gamepads'
 import HeadPortal from './HeadPortal'
 
 const App: FC = () => {
@@ -7,7 +8,7 @@ const App: FC = () => {
       <HeadPortal>
         <title>Gamepad API Demo</title>
       </HeadPortal>
-      hi
+      <Gamepads />
     </>
   )
 }
