@@ -1,6 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
+import { init } from '@noriginmedia/norigin-spatial-navigation'
+import './gamepadArrowKeyEmulator'
+
+init()
 
 const rootElement = document.createElement('div')
 document.body.appendChild(rootElement)

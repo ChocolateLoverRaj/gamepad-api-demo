@@ -1,8 +1,10 @@
 import { FC } from 'react'
 import Props from './Props'
 import Form from '@rjsf/core'
+import VibrateButton from './VibrateButton'
+import StopButton from './stopButton/StopButton'
 
-const Vibrate: FC<Props> = ({ gamepad }) => {
+const VibrateForm: FC<Props> = ({ gamepad }) => {
   return (
     <>
       <Form
@@ -26,22 +28,11 @@ const Vibrate: FC<Props> = ({ gamepad }) => {
           weakMagnitude: 1
         }}
       >
-        <button type='submit'>Vibrate</button>
+        <VibrateButton />
       </Form>
-      <button
-        onClick={() => {
-          (gamepad as any).vibrationActuator.playEffect('dual-rumble', {
-            duration: 0,
-            startDelay: 0,
-            strongMagnitude: 0,
-            weakMagnitude: 0
-          })
-        }}
-      >
-        Stop
-      </button>
+      <StopButton gamepad={gamepad} />
     </>
   )
 }
 
-export default Vibrate
+export default VibrateForm

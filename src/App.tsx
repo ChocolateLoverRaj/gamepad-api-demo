@@ -9,6 +9,9 @@ const App: FC = () => {
         <title>Gamepad API Demo</title>
       </HeadPortal>
       <Gamepads />
+      <br />
+      Tip: You can use a gamepad to click the buttons!
+      TODO: Edit numbers with a gamepad
     </>
   )
 }

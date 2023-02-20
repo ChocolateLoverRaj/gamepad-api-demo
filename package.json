@@ -9,6 +9,8 @@
 		"check-types": "tsc"
 	},
 	"dependencies": {
+		"@emotion/css": "^11.10.6",
+		"@noriginmedia/norigin-spatial-navigation": "^1.1.5",
 		"@rjsf/core": "^4.2.3",
 		"observables": "github:ChocolateLoverRaj/observables#v4.2.0",
 		"react": "^18.2.0",
