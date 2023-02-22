@@ -1,14 +1,24 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import Props from './Props'
-import Vibrate from './Vibrate'
+import VibrateForm from './VibrateForm'
+import { FocusContext, useFocusable } from '@noriginmedia/norigin-spatial-navigation'
+import GamepadButtons from './GamepadButtons'
 
-const Gamepad: FC<Props> = ({ gamepad }) => {
-  console.log(gamepad)
+const Gamepad: FC<Props> = ({ gamepadIndex }) => {
+  const { ref, focusKey, focusSelf } = useFocusable()
+
+  useEffect(() => {
+    focusSelf()
+  }, [focusSelf])
+
   return (
-    <>
-      Connected gamepad
-      <Vibrate gamepad={gamepad} />
-    </>
+    <FocusContext.Provider value={focusKey}>
+      <GamepadButtons gamepadIndex={gamepadIndex} />
+      <div ref={ref}>
+        Connected gamepad
+        <VibrateForm gamepadIndex={gamepadIndex} />
+      </div>
+    </FocusContext.Provider>
   )
 }
 

@@ -1,5 +1,5 @@
 interface Props {
-  gamepad: Gamepad | null
+  gamepadIndex: number
 }
 
 export default Props
