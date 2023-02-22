@@ -10,8 +10,8 @@ const Gamepads = reactObserver(observe => {
   return (
     <FocusContext.Provider value={focusKey}>
       <div ref={ref}>
-        {gamepads.map((gamepad, index) => <GamepadOrNull key={index} gamepad={gamepad} />)}
-        {gamepads.length === 0 && 'No gamepads'}
+        {navigator.getGamepads().map((_gamepad, index) => <GamepadOrNull key={index} gamepadIndex={index} />)}
+        {gamepads === 0 && 'No gamepads'}
       </div>
     </FocusContext.Provider>
   )

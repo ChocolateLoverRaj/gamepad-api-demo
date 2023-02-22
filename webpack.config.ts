@@ -1,4 +1,4 @@
-import { Configuration } from 'webpack'
+import { Configuration, ProvidePlugin } from 'webpack'
 import HtmlWebpackPlugin = require('html-webpack-plugin')
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
@@ -11,6 +11,9 @@ const config: Configuration = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    new ProvidePlugin({
+      process: 'process/browser'
+    }),
     ...isDevServer
       ? [
           new BundleAnalyzerPlugin({ openAnalyzer: false })
@@ -18,7 +21,10 @@ const config: Configuration = {
       : []
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.js', '.ts', '.tsx'],
+    fallback: {
+      assert: require.resolve('assert/')
+    }
   },
   module: {
     rules: [{

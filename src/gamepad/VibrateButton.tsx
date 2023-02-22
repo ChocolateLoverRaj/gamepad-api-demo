@@ -1,14 +1,15 @@
 import { useFocusable } from '@noriginmedia/norigin-spatial-navigation'
-import { FC } from 'react'
+import { FC, useCallback } from 'react'
 import { cx, css } from '@emotion/css'
+import useOnAButtonPress from '../useOnAButtonPress/useOnAButtonPress'
 
 const VibrateButton: FC = () => {
-  const { ref, focused } = useFocusable({
-    onEnterPress: () => {
-      console.log('click!');
-      (ref.current as HTMLButtonElement).click()
-    }
-  })
+  const { ref, focused } = useFocusable()
+
+  useOnAButtonPress(useCallback(() => {
+    ;(ref.current as HTMLButtonElement).click()
+    console.log('vibrate')
+  }, [ref]), focused)
 
   return (
     <button

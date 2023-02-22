@@ -1,7 +1,7 @@
 import wrapGetObservable from 'observables/lib/wrapGetObservable/wrapGetObservable'
 
-const observableGamepads = wrapGetObservable<Array<Gamepad | null>>({
-  getValue: () => navigator.getGamepads(),
+const observableGamepads = wrapGetObservable<number>({
+  getValue: () => navigator.getGamepads().length,
   getInternalObserve: triggerUpdate => {
     const listener: EventListener = () => triggerUpdate()
     return {
